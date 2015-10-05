@@ -19,10 +19,11 @@ train[,Date:=as.Date(Date)]
 
 train$Promo2For <-
   as.Date(paste(train$Promo2SinceYear,
-                train$Promo2SinceWeek,
-                rep("1",dim(train)[1]),sep="="),
-          format = "%Y-%U-%u")
-
+                train$Promo2SinceWeek
+                ,sep="-"),
+          format = "%Y-%W")
+train$PromoRun <- difftime(
+  train$Date, train$Promo2For, units = "weeks")
 ## Can also combine the competition dates to one parameter,
 ## competition_time, denoting the time the competition has been
 ## around.
@@ -32,3 +33,5 @@ train$CompetitionOpenFor <-
                 train$CompetitionOpenSinceMonth,
                 rep("1",dim(train)[1]),sep="-"), 
                 format = "%Y-%m-%d")
+train$CompetitionRun <- difftime(
+  train$Date, train$CompetitionOpenFor, units = "weeks")
