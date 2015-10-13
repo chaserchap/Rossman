@@ -2,9 +2,12 @@
 library(data.table)
 train <- fread("train.csv")
 store <- fread("store.csv")
+test <- fread("test.csv")
 
 ## Combine data for utilization
 train <- merge(train, store, by = "Store")
+test <- merge(test,store,by="Store")
+rm(store)
 
 ## Scrub data for when the store is closed (not open = no sales)
 train <- train[Open==1,]
@@ -35,3 +38,14 @@ train$CompetitionOpenFor <-
                 format = "%Y-%m-%d")
 train$CompetitionRun <- difftime(
   train$Date, train$CompetitionOpenFor, units = "weeks")
+
+## Dropping unneeded variables. Specifically all of the OpenFor
+## and OpenSince variables as well as the PromoInterval
+
+training <- train[,c("CompetitionOpenSinceMonth",
+                     "CompetitionOpenSinceYear",
+                     "Promo2SinceWeek",
+                     "Promo2SinceYear",
+                     "PromoInterval",
+                     "Promo2For",
+                     "CompetitionOpenFor"):=NULL]
