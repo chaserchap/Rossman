@@ -13,18 +13,28 @@ test <- merge(test,store,by="Store")
 rm(store)
 
 ## Scrub data for when the store is closed (not open = no sales)
-train <- train[Open==1,]
-test <- test[Open==1,]
+# train <- train[Open==1,]
+# test <- test[Open==1,]
 
 ## Cleaning dates
 train[,Date:=as.Date(Date)]
 test[,Date:=as.Date(Date)]
+
+
+test[,DayOfWeek:=as.factor(test$DayOfWeek)]
+test[,Promo:=as.factor(test$Promo)]
+test$StateHoliday <- as.factor(test$StateHoliday)
+test$SchoolHoliday <- as.factor(test$SchoolHoliday)
+test$StoreType <- as.factor(test$StoreType)
+test$Assortment <- as.factor(test$Assortment)
 train$DayOfWeek <- as.factor(train$DayOfWeek)
 train$Promo <- as.factor(train$Promo)
 train$StateHoliday <- as.factor(train$StateHoliday)
 train$SchoolHoliday <- as.factor(train$SchoolHoliday)
 train$StoreType <- as.factor(train$StoreType)
 train$Assortment <- as.factor(train$Assortment)
+train[,Open:=as.factor(train$Open)]
+test[,Open:=as.factor(test$Open)]
 
 ## Idea: Create new parameter: promo2_run_time delineating the 
 ## length of time the particular promo2 has been running. Then

@@ -11,10 +11,10 @@ myControl <- trainControl(method = "repeatedcv", repeats=5, number = 10)
 ## Doesn't work calling randomForest() either.
 
 pmt <- proc.time()
-modFit <- randomForest(Sales~DayOfWeek+Promo+StateHoliday+
+modFit <- train(Sales~DayOfWeek+Promo+StateHoliday+
                   SchoolHoliday+StoreType+Assortment+
                   CompetitionDistance+PromoRun+CompetitionRun,
-                data=train,allowParallel=TRUE)
+                method="rf",data=train[1:8000,],allowParallel=TRUE)
 pmt <- proc.time()-pmt
 
 ## GLM HUGE MSE ~7802906...
@@ -22,13 +22,15 @@ pmt <- proc.time()-pmt
 glmtime <- proc.time()
 glmFit <- train(Sales~DayOfWeek+Promo+StateHoliday+
                   SchoolHoliday+StoreType+Assortment+
-                  CompetitionDistance+PromoRun+CompetitionRun,
-                method="glm",data=training)
+                  CompetitionDistance+PromoRun+CompetitionRun+Open,
+                method="glm",data=train,allowParallel=TRUE,
+                trControl=myControl)
 glmtime <- proc.time() - glmtime
 
+myControl <- trainControl(method="repeatedcv",number="10",repeats="5")
 qdatime <- proc.time()
 qdaFit <- train(Sales~DayOfWeek+Promo+StateHoliday+
                   SchoolHoliday+StoreType+Assortment+
-                  CompetitionDistance+PromoRun+CompetitionRun,
-                method="qda",data=train,allowParallel=TRUE)
+                  CompetitionDistance+PromoRun+CompetitionRun+Open,
+                method="qda",data=train,allowParallel=TRUE,trControl=myControl)
 qdatime <- proc.time()-qdatime
