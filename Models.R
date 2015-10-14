@@ -23,8 +23,7 @@ glmtime <- proc.time()
 glmFit <- train(Sales~DayOfWeek+Promo+StateHoliday+
                   SchoolHoliday+StoreType+Assortment+
                   CompetitionDistance+PromoRun+CompetitionRun+Open,
-                method="glm",data=train,allowParallel=TRUE,
-                trControl=myControl)
+                method="glm",data=train)
 glmtime <- proc.time() - glmtime
 
 myControl <- trainControl(method="repeatedcv",number="10",repeats="5")
