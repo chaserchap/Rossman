@@ -1,7 +1,7 @@
 ## Load Data
-library(data.table)
-library(caret)
-library(randomForest)
+require(data.table)
+require(caret)
+require(randomForest)
 set.seed(1214)
 train <- fread("train.csv")
 store <- fread("store.csv")
@@ -19,6 +19,13 @@ test <- test[Open==1,]
 ## Cleaning dates
 train[,Date:=as.Date(Date)]
 test[,Date:=as.Date(Date)]
+train$DayOfWeek <- as.factor(train$DayOfWeek)
+train$Promo <- as.factor(train$Promo)
+train$StateHoliday <- as.factor(train$StateHoliday)
+train$SchoolHoliday <- as.factor(train$SchoolHoliday)
+train$StoreType <- as.factor(train$StoreType)
+train$Assortment <- as.factor(train$Assortment)
+
 ## Idea: Create new parameter: promo2_run_time delineating the 
 ## length of time the particular promo2 has been running. Then
 ## multiply promo2 times the new parameter (thus it'll be zero
@@ -50,16 +57,14 @@ train$CompetitionOpenFor <-
                 train$CompetitionOpenSinceMonth,
                 rep("1",dim(train)[1]),sep="-"), 
                 format = "%Y-%m-%d")
-train$CompetitionRun <- difftime(
-  train$Date, train$CompetitionOpenFor, units = "weeks")
+train$CompetitionRun <- difftime(train$Date, train$CompetitionOpenFor, units = "weeks")
 
 test$CompetitionOpenFor <- 
   as.Date(paste(test$CompetitionOpenSinceYear,
                 test$CompetitionOpenSinceMonth,
                 rep("1",dim(test)[1]),sep="-"), 
           format = "%Y-%m-%d")
-test$CompetitionRun <- difftime(
-  test$Date, train$CompetitionOpenFor, units = "weeks")
+test$CompetitionRun <- difftime(test$Date, test$CompetitionOpenFor, units = "weeks")
 ## Dropping unneeded variables. Specifically all of the OpenFor
 ## and OpenSince variables as well as the PromoInterval
 
