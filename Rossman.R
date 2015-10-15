@@ -59,7 +59,7 @@ test$CompetitionOpenFor <-
                 rep("1",dim(test)[1]),sep="-"), 
           format = "%Y-%m-%d")
 test$CompetitionRun <- difftime(
-  test$Date, train$CompetitionOpenFor, units = "weeks")
+  test$Date, test$CompetitionOpenFor, units = "weeks")
 ## Dropping unneeded variables. Specifically all of the OpenFor
 ## and OpenSince variables as well as the PromoInterval
 
