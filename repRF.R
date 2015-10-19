@@ -17,9 +17,13 @@ repRF <- function(formula,data,draws,percent,reproducible=TRUE,...){
 }
 
 for (i in seq(10)){
-  trainer <- train[inTrainer[[i]],]
-  models[[i]]<-randomForest(Sales~.,data=trainer)}
-
+  set.seed(i)
+  inTrain <- createDataPartition(train$Sales,p=0.001,list=FALSE)
+  trainer <- train[inTrainer[,1],]
+  model <- train(Sales~.,data=trainer,method="rf",allowParallel=TRUE)
+  predhold <- predict(model,newdata=test)
+  pred <- pred + as.numeric(predhold)}
+  
 rfpred <- function(models,newdata,...){
   for(i in models){
     prediction <- 

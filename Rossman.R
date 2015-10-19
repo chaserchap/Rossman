@@ -106,3 +106,10 @@ test$PromoRun <- as.numeric(test$PromoRun)
 train$PromoRun <- as.numeric(train$PromoRun)
 test$CompetitionRun <- as.numeric(test$CompetitionRun)
 train$CompetitionRun <- as.numeric(train$CompetitionRun)
+
+## Some cleaning determined from the cleaning script
+test$Open[is.na(test$Open)] <- 1
+train$CompetitionDistance[is.na(train$CompetitionDistance)] <- 250000
+test$CompetitionDistance[is.na(test$CompetitionDistance)] <- 250000
+train[,c("Date","Customers"):=NULL]
+levels(test$StateHoliday) <- levels(train$StateHoliday)
