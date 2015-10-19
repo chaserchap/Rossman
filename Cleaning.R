@@ -39,8 +39,8 @@ test$CompetitionDistance[is.na(test$CompetitionDistance)] <- 250000
 ## CompetitionDistance is > than the mean of 6065, and 1 if < 6065
 ggplot(train[Sales != 0], aes(x = CompetitionDistance, y = Customers)) + 
   geom_point() + geom_smooth(size = 2)
-train[,CompetitionDistance>6065] = 0
-train[,CompetitionDistance<=6065] = 1
+# train[,train$CompetitionDistance>6065] = 0
+# train[,train$CompetitionDistance<=6065] = 1
 
 
 ## Looking at PromoRun and CompetitionRun
@@ -56,8 +56,4 @@ ggplot(train[Sales != 0], aes(x = CompetitionRun, y = Sales)) +
   geom_point() + geom_smooth(size = 2)
 ## CompetitionRun also seems to have little effect
 
-## Of note, there may be interactions with competition run and promo run 
-## and other variables...
-
-modelVars <- c("DayOfWeek","Promo","StateHoliday","SchoolHoliday","Assortment",
-               "CompetitionDistance","Promo2")
+train[,c("Date","Customers"):=NULL]

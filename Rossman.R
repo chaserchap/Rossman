@@ -12,12 +12,11 @@ train <- merge(train, store, by = "Store")
 test <- merge(test,store,by="Store")
 rm(store)
 
-<<<<<<< Updated upstream
+
 ## Scrub data for when the store is closed (not open = no sales)
 # train <- train[Open==1,]
 # test <- test[Open==1,]
-=======
->>>>>>> Stashed changes
+
 
 ## Cleaning dates
 train[,Date:=as.Date(Date)]
@@ -99,9 +98,9 @@ test <- test[,c("CompetitionOpenSinceMonth",
 train$PromoRun[is.na(train$PromoRun)] <- 0
 train$CompetitionRun[is.na(train$CompetitionRun)] <- 0
 ## Setup training and testing sets for none cross-validated models
-inTrain <- createDataPartition(train$Sales,p=0.6,list=FALSE)
-testing <- train[-inTrain[,1]]
-training <- train[inTrain[,1]]
+# inTrain <- createDataPartition(train$Sales,p=0.6,list=FALSE)
+# testing <- train[-inTrain[,1]]
+# training <- train[inTrain[,1]]
 
 test$PromoRun <- as.numeric(test$PromoRun)
 train$PromoRun <- as.numeric(train$PromoRun)

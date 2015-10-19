@@ -14,7 +14,7 @@ pmt <- proc.time()
 modFit <- train(Sales~DayOfWeek+Promo+StateHoliday+
                   SchoolHoliday+StoreType+Assortment+
                   CompetitionDistance+PromoRun+CompetitionRun,
-                method="rf",data=train[1:8000,],allowParallel=TRUE)
+                method="rf",data=train,allowParallel=TRUE)
 pmt <- proc.time()-pmt
 
 ## GLM HUGE MSE ~7802906...
