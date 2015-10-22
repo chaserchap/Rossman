@@ -115,5 +115,10 @@ train$CompetitionDistance[is.na(train$CompetitionDistance)] <- 250000
 test$CompetitionDistance[is.na(test$CompetitionDistance)] <- 250000
 train[,c("Date","Customers"):=NULL]
 levels(test$StateHoliday) <- levels(train$StateHoliday)
+<<<<<<< HEAD
 test[,Store:=as.factor(as.numeric(Store))]
 train[,Store:=as.factor(as.numeric(Store))]
+=======
+train[,logSales:=log1p(Sales)]
+features <- colnames(train)[!(colnames(train) %in% c("Id","Date","Sales","logSales","Customers"))]
+>>>>>>> origin/master
