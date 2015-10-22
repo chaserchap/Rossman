@@ -1,0 +1,50 @@
+2015-10-22 16:28:28,318 EDT  INFO Domino - ================================================================================
+2015-10-22 16:28:28,322 EDT  INFO Domino - starting client
+2015-10-22 16:28:28,323 EDT DEBUG Domino - CWD = /Users/chaserchap/Documents/Kaggle/Rossman
+2015-10-22 16:28:28,324 EDT  INFO Domino - executing command: help
+2015-10-22 16:28:54,793 EDT  INFO Domino - ================================================================================
+2015-10-22 16:28:54,797 EDT  INFO Domino - starting client
+2015-10-22 16:28:54,797 EDT DEBUG Domino - CWD = /Users/chaserchap/Documents/Kaggle/Rossman
+2015-10-22 16:28:54,799 EDT  INFO Domino - executing command: login
+2015-10-22 16:28:54,819 EDT DEBUG LoginCommand - logging in to host: https://app.dominodatalab.com
+2015-10-22 16:28:54,826 EDT  INFO ClientControllerProxy - getting auth info from https://app.dominodatalab.com/loginFromInstaller
+2015-10-22 16:28:54,868 EDT DEBUG DefaultTransport - Issuing request to https://app.dominodatalab.com/loginFromInstaller with proxy detected as DIRECT (full request = Request(POST,<function2>,<function1>,List((username,chaserchap), (password,CcJc1214), (dominoClientSource,R)),List((X-Domino-Api-Key,), (Charset,UTF-8), (Content-Type,application/x-www-form-urlencoded), (content-type,application/x-www-form-urlencoded)),List(<function1>, <function1>, <function1>, <function1>, <function1>),DIRECT,UTF-8,4096))
+2015-10-22 16:28:55,755 EDT ERROR DefaultTransport - HTTP exception: Unauthorized body: No user for that username/password. You can reset your password here (https://app.dominodatalab.com/reset) if you've forgotten it.
+2015-10-22 16:29:12,454 EDT  INFO Domino - ================================================================================
+2015-10-22 16:29:12,457 EDT  INFO Domino - starting client
+2015-10-22 16:29:12,458 EDT DEBUG Domino - CWD = /Users/chaserchap/Documents/Kaggle/Rossman
+2015-10-22 16:29:12,459 EDT  INFO Domino - executing command: login
+2015-10-22 16:29:12,464 EDT DEBUG LoginCommand - logging in to host: https://app.dominodatalab.com
+2015-10-22 16:29:12,468 EDT  INFO ClientControllerProxy - getting auth info from https://app.dominodatalab.com/loginFromInstaller
+2015-10-22 16:29:12,498 EDT DEBUG DefaultTransport - Issuing request to https://app.dominodatalab.com/loginFromInstaller with proxy detected as DIRECT (full request = Request(POST,<function2>,<function1>,List((username,chaserchap), (password,CcJc1214), (dominoClientSource,R)),List((X-Domino-Api-Key,), (Charset,UTF-8), (Content-Type,application/x-www-form-urlencoded), (content-type,application/x-www-form-urlencoded)),List(<function1>, <function1>, <function1>, <function1>, <function1>),DIRECT,UTF-8,4096))
+2015-10-22 16:29:13,309 EDT ERROR DefaultTransport - HTTP exception: Unauthorized body: No user for that username/password. You can reset your password here (https://app.dominodatalab.com/reset) if you've forgotten it.
+2015-10-22 16:29:20,194 EDT  INFO Domino - ================================================================================
+2015-10-22 16:29:20,198 EDT  INFO Domino - starting client
+2015-10-22 16:29:20,198 EDT DEBUG Domino - CWD = /Users/chaserchap/Documents/Kaggle/Rossman
+2015-10-22 16:29:20,199 EDT  INFO Domino - executing command: login
+2015-10-22 16:29:20,204 EDT DEBUG LoginCommand - logging in to host: https://app.dominodatalab.com
+2015-10-22 16:29:20,208 EDT  INFO ClientControllerProxy - getting auth info from https://app.dominodatalab.com/loginFromInstaller
+2015-10-22 16:29:20,238 EDT DEBUG DefaultTransport - Issuing request to https://app.dominodatalab.com/loginFromInstaller with proxy detected as DIRECT (full request = Request(POST,<function2>,<function1>,List((username,chaserchap), (password,CcJc1214!!), (dominoClientSource,R)),List((X-Domino-Api-Key,), (Charset,UTF-8), (Content-Type,application/x-www-form-urlencoded), (content-type,application/x-www-form-urlencoded)),List(<function1>, <function1>, <function1>, <function1>, <function1>),DIRECT,UTF-8,4096))
+2015-10-22 16:29:20,864 EDT ERROR DefaultTransport - HTTP exception: Unauthorized body: No user for that username/password. You can reset your password here (https://app.dominodatalab.com/reset) if you've forgotten it.
+2015-10-22 16:30:30,750 EDT  INFO Domino - ================================================================================
+2015-10-22 16:30:30,756 EDT  INFO Domino - starting client
+2015-10-22 16:30:30,757 EDT DEBUG Domino - CWD = /Users/chaserchap/Documents/Kaggle/Rossman
+2015-10-22 16:30:30,758 EDT  INFO Domino - executing command: login
+2015-10-22 16:30:30,767 EDT DEBUG LoginCommand - logging in to host: https://app.dominodatalab.com
+2015-10-22 16:30:30,774 EDT  INFO ClientControllerProxy - getting auth info from https://app.dominodatalab.com/loginFromInstaller
+2015-10-22 16:30:30,815 EDT DEBUG DefaultTransport - Issuing request to https://app.dominodatalab.com/loginFromInstaller with proxy detected as DIRECT (full request = Request(POST,<function2>,<function1>,List((username,chase.chapman@gmail.com), (password,CcJc1214), (dominoClientSource,R)),List((X-Domino-Api-Key,), (Charset,UTF-8), (Content-Type,application/x-www-form-urlencoded), (content-type,application/x-www-form-urlencoded)),List(<function1>, <function1>, <function1>, <function1>, <function1>),DIRECT,UTF-8,4096))
+2015-10-22 16:30:32,270 EDT DEBUG ClientControllerProxy - response from server: {"host":"https://app.dominodatalab.com","user_id":"5611a678e4b0ce8665bd335e","username":"chasechapman","api_key":"l7v4Z7gmPFdZWHenDGnepAcQac93e5cUkNbyFb0PP6VZFjx78vr4PgmU4MkYrqK3","client_blob_mode":"S3","is_cloud_mode":true,"is_cloud_hosted":true}
+2015-10-22 16:30:32,561 EDT DEBUG LoginCommand - response from server: InstallConfig(https://app.dominodatalab.com,5611a678e4b0ce8665bd335e,chasechapman,l7v4Z7gmPFdZWHenDGnepAcQac93e5cUkNbyFb0PP6VZFjx78vr4PgmU4MkYrqK3,true,None)
+2015-10-22 17:01:48,447 EDT  INFO Domino - ================================================================================
+2015-10-22 17:01:48,459 EDT  INFO Domino - starting client
+2015-10-22 17:01:48,461 EDT DEBUG Domino - CWD = /Users/chaserchap/Documents/Kaggle/Rossman
+2015-10-22 17:01:48,463 EDT  INFO Domino - executing command: help
+2015-10-22 17:02:02,740 EDT  INFO Domino - ================================================================================
+2015-10-22 17:02:02,744 EDT  INFO Domino - starting client
+2015-10-22 17:02:02,744 EDT DEBUG Domino - CWD = /Users/chaserchap/Documents/Kaggle/Rossman
+2015-10-22 17:02:02,746 EDT  INFO Domino - executing command: login
+2015-10-22 17:02:02,762 EDT DEBUG LoginCommand - logging in to host: https://app.dominodatalab.com
+2015-10-22 17:02:02,767 EDT  INFO ClientControllerProxy - getting auth info from https://app.dominodatalab.com/loginFromInstaller
+2015-10-22 17:02:02,796 EDT DEBUG DefaultTransport - Issuing request to https://app.dominodatalab.com/loginFromInstaller with proxy detected as DIRECT (full request = Request(POST,<function2>,<function1>,List((username,chase.chapman@gmail.com), (password,CcJc1214), (dominoClientSource,R)),List((X-Domino-Api-Key,), (Charset,UTF-8), (Content-Type,application/x-www-form-urlencoded), (content-type,application/x-www-form-urlencoded)),List(<function1>, <function1>, <function1>, <function1>, <function1>),DIRECT,UTF-8,4096))
+2015-10-22 17:02:05,668 EDT DEBUG ClientControllerProxy - response from server: {"host":"https://app.dominodatalab.com","user_id":"5611a678e4b0ce8665bd335e","username":"chasechapman","api_key":"l7v4Z7gmPFdZWHenDGnepAcQac93e5cUkNbyFb0PP6VZFjx78vr4PgmU4MkYrqK3","client_blob_mode":"S3","is_cloud_mode":true,"is_cloud_hosted":true}
+2015-10-22 17:02:05,851 EDT DEBUG LoginCommand - response from server: InstallConfig(https://app.dominodatalab.com,5611a678e4b0ce8665bd335e,chasechapman,l7v4Z7gmPFdZWHenDGnepAcQac93e5cUkNbyFb0PP6VZFjx78vr4PgmU4MkYrqK3,true,None)
