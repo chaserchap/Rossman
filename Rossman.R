@@ -38,7 +38,7 @@ train$Assortment <- as.factor(train$Assortment)
 train[,Open:=as.factor(train$Open)]
 test[,Open:=as.factor(test$Open)]
 
-## Idea: Create new parameter: promo2_run_time delineating the 
+## Idea: Create new parameter: promo2_run_time delineating the
 ## length of time the particular promo2 has been running. Then
 ## multiply promo2 times the new parameter (thus it'll be zero
 ## or the amount of time the promo has been running). The rest
@@ -64,17 +64,17 @@ test$PromoRun <- difftime(
 ## competition_time, denoting the time the competition has been
 ## around.
 
-train$CompetitionOpenFor <- 
+train$CompetitionOpenFor <-
   as.Date(paste(train$CompetitionOpenSinceYear,
                 train$CompetitionOpenSinceMonth,
-                rep("1",dim(train)[1]),sep="-"), 
+                rep("1",dim(train)[1]),sep="-"),
                 format = "%Y-%m-%d")
 train$CompetitionRun <- difftime(train$Date, train$CompetitionOpenFor, units = "weeks")
 
-test$CompetitionOpenFor <- 
+test$CompetitionOpenFor <-
   as.Date(paste(test$CompetitionOpenSinceYear,
                 test$CompetitionOpenSinceMonth,
-                rep("1",dim(test)[1]),sep="-"), 
+                rep("1",dim(test)[1]),sep="-"),
           format = "%Y-%m-%d")
 test$CompetitionRun <- difftime(test$Date, test$CompetitionOpenFor, units = "weeks")
 ## Dropping unneeded variables. Specifically all of the OpenFor
@@ -97,6 +97,8 @@ test <- test[,c("CompetitionOpenSinceMonth",
 
 train$PromoRun[is.na(train$PromoRun)] <- 0
 train$CompetitionRun[is.na(train$CompetitionRun)] <- 0
+test$PromoRun[is.na(test$PromoRun)] <- 0
+test$CompetitionRun[is.na(test$CompetitionRun)] <- 0
 ## Setup training and testing sets for none cross-validated models
 # inTrain <- createDataPartition(train$Sales,p=0.6,list=FALSE)
 # testing <- train[-inTrain[,1]]
@@ -113,3 +115,5 @@ train$CompetitionDistance[is.na(train$CompetitionDistance)] <- 250000
 test$CompetitionDistance[is.na(test$CompetitionDistance)] <- 250000
 train[,c("Date","Customers"):=NULL]
 levels(test$StateHoliday) <- levels(train$StateHoliday)
+test[,Store:=as.factor(as.numeric(Store))]
+train[,Store:=as.factor(as.numeric(Store))]
