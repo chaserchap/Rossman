@@ -25,9 +25,9 @@ train[,Date:=as.Date(Date)]
 test[,Date:=as.Date(Date)]
 
 ## Compute logSales
-train[,logSales:=log1p(Sales)]
-train[,logCustomers:=log1p(Customers)]
-train[,logDist:=log1p(CompetitionDistance)]
+train[,logSales:=log(Sales)]
+train[,logCustomers:=log(Customers)]
+# train[,logDist:=log1p(CompetitionDistance)]
 
 ## Define variable types and create Week factor
 train[,Store:=as.factor(as.numeric(Store))]
@@ -40,6 +40,7 @@ train[,StoreType:=as.factor(train$StoreType)]
 train[,Promo2:=as.factor(train$StoreType)]
 train[,PromoInterval:=as.factor(train$PromoInterval)]
 train[,Month:=as.integer(format(Date, "%m"))]
+# train[,Week:=as.integer(format(Date, "%U"))]
 train[,Year:=as.integer(format(Date, "%Y"))]
 
 test[,Store:=as.factor(as.numeric(Store))]
@@ -51,7 +52,8 @@ test[,SchoolHoliday:=as.factor(test$SchoolHoliday)]
 test[,StoreType:=as.factor(test$StoreType)]
 test[,Promo2:=as.factor(test$StoreType)]
 test[,PromoInterval:=as.factor(test$PromoInterval)]
-test[,Week:=as.integer(format(Date, "%m"))]
+test[,Month:=as.integer(format(Date, "%m"))]
+# test[,Week:=as.integer(format(Date, "%U"))]
 test[,Year:=as.integer(format(Date, "%Y"))]
 
 
