@@ -9,8 +9,10 @@ localh2o <- h2o.init(nthreads=-1,max_mem_size="28g")
 trainHex <- as.h2o(train)
 
 ## Specify factors of interest (ie NOT those listed)
-features<-colnames(train)[!(colnames(train) %in%
+salesFeatures<-colnames(train)[!(colnames(train) %in%
                           c("Id","Date","Sales","logSales","Customers"))]
+customerFeatures<-colnames(train)[!(colnames(train) %in%
+                          c("Id","Date","Sales","logSales","Customers", "logCustomers"))]
 
 ## Create RandomForest
 i = 0
