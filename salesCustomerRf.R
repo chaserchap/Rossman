@@ -26,8 +26,8 @@ rfCustomerHex <- h2o.randomForest(x=features,
                                   training_frame=trainHex)
 
 ## Obtain predicted logCustomers for train and test sets
-train$predictedCustomers <- exp(as.data.frame(predict(rfCustomerHex,trainHex))[,1])
-test$predictedCustomers <- exp(as.data.frame(predict(rfCustomerHex,testHex))[,1])
+train$predictedCustomers <- as.data.frame(predict(rfCustomerHex,trainHex))[,1]
+test$predictedCustomers <- as.data.frame(predict(rfCustomerHex,testHex))[,1]
 
 ## Reload new dataframe
 trainHex <- as.h2o(train)
@@ -68,3 +68,10 @@ write.csv(submission,"./Results/SalesCustRF.csv",row.names = FALSE)
 ## Score .14117 MSE 0.01675013
 ##
 ## Third attempt fixed second attempt
+## MSE = 0.01674159
+
+## Fourth attempt, removed month int added week int.
+## MSE = 0.008316332 Score .12050
+
+## Fifth: week int, logCustomers
+## MSE = 0.008325868
